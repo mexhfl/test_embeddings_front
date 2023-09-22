@@ -1,0 +1,147 @@
+smallScreenWidth = 1441px
+themeColor = #53a2ff
+themeColorSecond = #53a2ff
+themeColorHover = #f4f9ff
+themeColorTitle = #3c6cb4
+
+
+////【蓝色版】皮肤主色
+//blueThemeValue = #2e6dad
+//
+//
+////绿色版皮肤主色
+//greenThemeValue = #439138
+////绿色版皮肤浅色
+//greenThemeValueShallow = rgba(67, 145, 56, 0.58)
+////绿色版皮肤浅色【非常浅】
+//greenThemeValueShallow2 = rgba(220, 255, 222, 0.51)
+////绿色版皮肤深色
+//greenThemeValueDeep = #427129
+
+//旋转动画
+@keyframes turn {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+//客服跳跃
+@keyframes jump
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0)
+  }
+  10% {
+    -webkit-transform: translateY(0) scaleX(1.2) scaleY(.8);
+    transform: translateY(0) scaleX(1.2) scaleY(.8)
+  }
+  30% {
+    -webkit-transform: translateY(0) scaleX(1) scaleY(1) rotateZ(5deg);
+    transform: translateY(0) scaleX(1) scaleY(1) rotateZ(5deg)
+  }
+  50% {
+    -webkit-transform: translateY(0) scale(1) rotateZ(0);
+    transform: translateY(0) scale(1) rotateZ(0)
+  }
+  55% {
+    -webkit-transform: translateY(0) scaleX(1.1) scaleY(.9) rotateZ(0);
+    transform: translateY(0) scaleX(1.1) scaleY(.9) rotateZ(0)
+  }
+  70% {
+    -webkit-transform: translateY(0) scaleX(1) scaleY(1) rotateZ(-2deg);
+    transform: translateY(0) scaleX(1) scaleY(1) rotateZ(-2deg)
+  }
+  80% {
+    -webkit-transform: translateY(0) scaleX(1) scaleY(1) rotateZ(0);
+    transform: translateY(0) scaleX(1) scaleY(1) rotateZ(0)
+  }
+  85% {
+    -webkit-transform: translateY(0) scaleX(1.05) scaleY(.95) rotateZ(0);
+    transform: translateY(0) scaleX(1.05) scaleY(.95) rotateZ(0)
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleX(1) scaleY(1);
+    transform: translateY(0) scaleX(1) scaleY(1)
+  }
+
+.split
+  height 0.2rem
+  background-color #f2f2f2
+
+.clearfix
+  &:after
+    display: block
+    content: ""
+    height: 0
+    clear: both
+    visibility: hidden
+
+
+transitionDuration = 300ms
+setTransition()
+  cursor pointer
+  user-select none
+  transition transitionDuration
+
+//快速设置元素宽高
+eleRect(w, h = w)
+  width w
+  height h
+
+//快速设置定位布局撑到最大
+setPositionFull()
+  display block
+  position absolute
+  left 0
+  right 0
+  top 0
+  bottom 0
+  margin auto
+
+//设置超出显示省略号
+setEllipsis()
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+setActive()
+  &:active
+    background-color #f1f1f1
+
+/*路由切换动画*/
+.routeranim-enter
+  opacity 0
+  transform translate3d(100px, 0, 0)
+  setTransition()
+
+.routeranim-leave-to
+  display none
+  overflow visible
+  height 0
+
+.routeranim-enter-active, .routeranim-leave-active
+  transition: all transitionDuration ease-out;
+
+.emptyNotice
+  position absolute
+  left 0
+  right 0
+  top 0
+  bottom 0
+  text-align center
+  margin auto
+  line-height 1
+  color #999999
+  height 1em
