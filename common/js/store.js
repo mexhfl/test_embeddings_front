@@ -6,7 +6,7 @@
  * @param key
  * @param value
  */
-import axios from "common/js/axiosCustom";
+import axios from "axios";
 
 export function saveToLocal(id, key, value) {
   let globalData = window.localStorage.__global__;

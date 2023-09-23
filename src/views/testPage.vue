@@ -21,12 +21,13 @@
 <script setup>
 import { ref, computed } from "vue";
 import axios from "axios";
+import apiConfig from "common/js/api_config.js"
 
 const searchText = ref("");
 const questionList = ref([]);
 
 async function fetchQuestionList() {
-  let resp = await axios.post('http://127.0.0.1:3000/find-questions')
+  let resp = await axios.post(`${apiConfig.REQUEST_URL}/find-questions`)
   searchText.value = ""
   questionList.value = resp.data
 }
@@ -34,7 +35,7 @@ async function addQuestion() {
   if (!searchText.value) {
     return
   }
-  let resp = await axios.post('http://127.0.0.1:3000/add', {
+  let resp = await axios.post(`${apiConfig.REQUEST_URL}/add`, {
     question: searchText.value
   })
   console.log(resp.data.message)
@@ -45,7 +46,7 @@ async function findSimilar() {
   if (!searchText.value) {
     return
   }
-  let resp = await axios.post('http://127.0.0.1:3000/find-similar', {
+  let resp = await axios.post(`${apiConfig.REQUEST_URL}/find-similar`, {
     question: searchText.value
   })
   let respArr = resp.data
@@ -54,65 +55,6 @@ async function findSimilar() {
 
 fetchQuestionList()
 
-
-
-let questionList1 = [
-  '今天天气怎么样？',
-  '你能告诉我现在的天气吗？',
-  '外面天气如何？',
-  '今天会下雨吗？',
-  '外面温度多少？',
-  '今晚吃什么？',
-  '有没有好的晚餐建议？',
-  '我今晚应该做什么吃？',
-  '有什么健康的晚餐选择？',
-  '你能推荐一个晚餐食谱吗？',
-  '有哪些好的度假胜地？',
-  '你能推荐一个旅行目的地吗？',
-  '我下次度假应该去哪里？',
-  '最好的旅游景点有哪些？',
-  '推荐一些值得一游的地方。',
-  '我怎么样才能减肥？',
-  '有哪些健康的习惯？',
-  '我怎么样才能保持健康？',
-  '有什么好的饮食计划？',
-  '你能推荐一个锻炼计划吗？',
-  '我该如何修理漏水的水龙头？',
-  '法国的首都是什么？',
-  '怎么煮咖啡？',
-  '冥想有什么好处？',
-  '我该如何更换轮胎？',
-  '最新的iPhone型号是什么？',
-  '怎么做蛋糕？',
-  '光速是多少？',
-  '我该如何训练我的狗？',
-  '国际象棋的规则是什么？',
-  '怎么写简历？',
-  '学习新语言的最佳方法是什么？',
-  '怎么计算圆的面积？',
-  '流感有哪些症状？',
-  '怎么做自制披萨？',
-  '世界上最高的山是什么？',
-  '怎么照顾植物？',
-  '经济学的基本原理是什么？',
-  '怎么编辑视频？',
-  '水的沸点是多少？',
-  '怎么写商业计划？',
-  '世界七大奇迹是什么？',
-  '在家里怎么酿啤酒？',
-  '地球和月球之间的距离是多少？',
-  '怎么创建一个网站？',
-  '周期表中有哪些元素？',
-  '怎么弹吉他？',
-  '人生的意义是什么？',
-  '怎么解决魔方？',
-  '热力学定律是什么？'
-]
-
-// questionList1.forEach(async item => {
-//   searchText.value = item
-//   await addQuestion()
-// })
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -1,5 +1,5 @@
 //配置基础工具
-import axios from "common/js/axiosCustom";
+import axios from "axios";
 import apiConfig from "common/js/api_config";
 import {getQueryString, getToken, saveToken} from "common/js/store";
 import 'normalize.css'
